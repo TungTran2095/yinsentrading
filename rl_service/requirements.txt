@@ -1,0 +1,11 @@
+fastapi==0.104.1
+stable-baselines3==2.1.0
+gymnasium==0.28.1
+ray[rllib]==2.7.1
+optuna==3.4.0
+numpy==1.26.0
+pandas==2.1.1
+matplotlib==3.8.0
+psycopg2-binary==2.9.9
+redis==5.0.1
+python-dotenv==1.0.0
