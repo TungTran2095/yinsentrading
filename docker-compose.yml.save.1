@@ -1,3 +1,4 @@
+y
 version: '3.8'
 
 services:
@@ -61,22 +62,23 @@ services:
     networks:
       - trading_network
 
-  model_service:
-    build:
-      context: ./model_service
-      dockerfile: Dockerfile
+   model_service:
+    build: ./model_service
     container_name: trading_model_service
     environment:
-      - POSTGRES_URI=postgresql://trading:trading_password@postgres:5432/trading_system
-      - REDIS_URI=redis://redis:6379/0
-      - PORT=8002
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=trading_user
+      - POSTGRES_PASSWORD=trading_password
+      - POSTGRES_DB=trading_db
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     ports:
       - "8002:8002"
     depends_on:
       - postgres
       - redis
       - data_service
-    restart: unless-stopped
     networks:
       - trading_network
 
@@ -127,29 +129,23 @@ services:
   chat_service:
     build:
       context: ./chat_service
+      dockerfile: Dockerfile
     container_name: trading_chat_service
     environment:
-      - POSTGRES_USER=trading
-      - POSTGRES_PASSWORD=trading_password
-      - POSTGRES_HOST=postgres
-      - POSTGRES_PORT=5432
-      - POSTGRES_DB=trading_system
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - REDIS_DB=0
+      - MONGODB_URI=mongodb://trading:trading_password@mongodb:27017
+      - MONGODB_DB=trading_system
+      - PORT=8005
       - DATA_SERVICE_URL=http://data_service:8001
       - MODEL_SERVICE_URL=http://model_service:8002
-      - RL_SERVICE_URL=http://rl_service:8003
       - TRADING_SERVICE_URL=http://trading_service:8004
     ports:
       - "8005:8005"
     depends_on:
-      - postgres
-      - redis
+      - mongodb
       - data_service
       - model_service
-      - rl_service
       - trading_service
+    restart: unless-stopped
     networks:
       - trading_network
 
@@ -159,7 +155,7 @@ services:
       dockerfile: Dockerfile
     container_name: trading_frontend
     environment:
-      - REACT_APP_API_URL=http://34.9.103.156
+      - REACT_APP_API_URL=http://localhost
       - REACT_APP_DATA_SERVICE_PORT=8001
       - REACT_APP_MODEL_SERVICE_PORT=8002
       - REACT_APP_RL_SERVICE_PORT=8003

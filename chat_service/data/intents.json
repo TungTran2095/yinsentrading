@@ -1,0 +1,49 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "Good day",
+                "Good morning",
+                "Good evening"
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there!",
+                "Hey! How can I help you?",
+                "Hi! Nice to meet you!"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Take care"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you later!",
+                "Have a nice day!"
+            ]
+        },
+        {
+            "tag": "trading_info",
+            "patterns": [
+                "What is the price of {symbol}",
+                "Show me {symbol} price",
+                "How much is {symbol}",
+                "Current price of {symbol}"
+            ],
+            "responses": [
+                "The current price of {symbol} is {price}",
+                "{symbol} is trading at {price}",
+                "Latest price for {symbol}: {price}"
+            ]
+        }
+    ]
+}

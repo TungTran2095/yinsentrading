@@ -18,7 +18,10 @@ from .models import (
     ModelInfo, EnsembleInfo, PredictionResult, StatusResponse
 )
 from models import RandomForestModel, XGBoostModel, LSTMModel, TransformerModel
-from ensemble import WeightedAverageEnsemble, StackingEnsemble
+from ensemble.base_ensemble import BaseEnsemble
+from ensemble.weighted_average import WeightedAverageEnsemble
+from ensemble.stacking import StackingEnsemble
+from models.base_model import BaseModel
 
 logger = logging.getLogger(__name__)
 

@@ -1,6 +1,9 @@
-FROM node:20 as build
+FROM node:alpine AS build
 
 WORKDIR /app
+
+# Install build dependencies
+RUN apk add --no-cache python3 make g++
 
 # Copy package.json and package-lock.json
 COPY package*.json ./

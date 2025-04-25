@@ -14,15 +14,15 @@ PROJECT_NAME = "Trading System - Data Service"
 VERSION = "0.1.0"
 
 # Cấu hình cơ sở dữ liệu
-POSTGRES_USER = os.getenv("POSTGRES_USER", "trading_user")
+POSTGRES_USER = os.getenv("POSTGRES_USER", "trading")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "trading_password")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST", "postgres")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
-POSTGRES_DB = os.getenv("POSTGRES_DB", "trading_db")
+POSTGRES_DB = os.getenv("POSTGRES_DB", "trading_system")
 DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
 # Cấu hình Redis
-REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 REDIS_PORT = os.getenv("REDIS_PORT", "6379")
 REDIS_DB = os.getenv("REDIS_DB", "0")
 REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}"

@@ -6,7 +6,7 @@ import logging
 import asyncio
 from typing import Dict, List, Optional, Any
 from datetime import datetime
-from python_binance import AsyncClient, BinanceSocketManager
+from binance import AsyncClient, BinanceSocketManager
 from .base_collector import BaseCollector
 import sys
 sys.path.append('..')

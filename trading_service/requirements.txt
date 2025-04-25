@@ -11,3 +11,4 @@ redis==5.0.1
 ccxt>=3.0.0
 python-binance==1.0.19
 python-dotenv==1.0.0
+uvicorn==0.24.0
