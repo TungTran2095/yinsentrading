@@ -1,0 +1,10 @@
+/frontend/node_modules/
+# Bỏ qua các file log
+*.log
+
+# Bỏ qua các biến môi trường
+.env
+
+# Thư mục build (nếu có)
+/build/
+/dist/
